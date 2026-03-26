@@ -16,7 +16,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
+class Form;
 
 class   Bureaucrat
 {
@@ -48,9 +50,12 @@ class   Bureaucrat
 		};
 
 		const std::string &getName() const;
-		int getGrade() const;
+		int		getGrade() const;
 		void    incGrade(void); // if the grade is 3 and we call this func, the grade will be 2 (1 is the highest)
 		void    decGrade(void); // if the grade is 3 and we call this func, the grade will be 4 (150 is the lowest)
+		void signForm(Form &form); // calls for beSigned to try and sign the form
+								   // if the form is signed with success, prints OK
+								   // otherwise KO, because <reason> [more info on subject]
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat);

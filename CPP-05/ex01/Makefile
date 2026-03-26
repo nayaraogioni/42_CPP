@@ -3,11 +3,13 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp \
-	   Bureaucrat.cpp
+	   Bureaucrat.cpp \
+	   Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS =   Bureaucrat.hpp
+HEADERS =   Bureaucrat.hpp \
+			Form.hpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)

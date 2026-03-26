@@ -17,7 +17,6 @@
 #include <iostream>
 #include <exception>
 
-
 class   Bureaucrat
 {
 	private:

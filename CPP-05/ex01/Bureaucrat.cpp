@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:53:03 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/03/19 18:49:11 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:41:01 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,16 @@ void Bureaucrat::decGrade(void)
     }
     else
         _grade += 1;
+}
+void Bureaucrat::signForm(Form &form)
+{
+   try
+   {
+        form.beSigned(*this);
+        std::cout << getName() << " signed " << form.getName() << std::endl;
+   }
+   catch (const std::exception &e)
+   {
+       std::cout << getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+   }
 }
