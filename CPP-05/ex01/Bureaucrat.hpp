@@ -1,14 +1,15 @@
 /* ************************************************************************** */
-/*									    */
-/*							:::      ::::::::   */
-/*   Bureaucrat.hpp				     :+:      :+:    :+:   */
-/*						    +:+ +:+	 +:+     */
-/*   By: nogioni- <nogioni-@student.42.fr>	  +#+  +:+       +#+	*/
-/*						+#+#+#+#+#+   +#+	   */
-/*   Created: 2026/02/24 18:08:19 by nogioni-	  #+#    #+#	     */
-/*   Updated: 2026/03/03 18:50:53 by nogioni-	 ###   ########.fr       */
-/*									    */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/21 16:34:20 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/04/22 17:10:26 by nogioni-         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -53,7 +54,7 @@ class   Bureaucrat
 		int		getGrade() const;
 		void    incGrade(void); // if the grade is 3 and we call this func, the grade will be 2 (1 is the highest)
 		void    decGrade(void); // if the grade is 3 and we call this func, the grade will be 4 (150 is the lowest)
-		void signForm(Form &form); // calls for beSigned to try and sign the form
+		void	signForm(Form &form); // calls for beSigned to try and sign the form
 								   // if the form is signed with success, prints OK
 								   // otherwise KO, because <reason> [more info on subject]
 };

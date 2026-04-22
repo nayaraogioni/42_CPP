@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:27:36 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/04/22 17:33:07 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:12:40 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ bool    Form::getSign() const
 
 void    Form::beSigned(const Bureaucrat& other)
 {
-	if (_isSigned)
-		throw FormAlreadySignedException();
-	int bGrade;
+    int bGrade;
     bGrade = other.getGrade();
     if (bGrade <= this->_gradeToSign)
         _isSigned = true;

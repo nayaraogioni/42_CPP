@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:10:02 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/04/22 17:35:00 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/03/26 17:44:12 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class Form
         const int           _gradeToSign;
         const int           _gradeToExecute;
     public:
-        
-		Form(const std::string &name, int gradeToSign, int gradeToExecute);
+        Form(const std::string &name, int gradeToSign, int gradeToExecute);
         Form(const Form& other);
         ~Form();
 
@@ -38,28 +37,19 @@ class Form
             public:
                 virtual const char *what() const throw()
                 {
-                    return "Bureaucrat's grade is GREATER than required to sign the form!";
+                    return "Form grade is too high!";
                 }
         };
 
         class GradeTooLowException : public std::exception
         {
-        	public:
-			virtual const char *what() const throw()
-			{
-				return "Bureaucrat's grade is LOWER than required to sign the form!";
-			}
+        public:
+            virtual const char *what() const throw()
+            {
+                return "Form grade is too low!";
+            }
         };
-		
-		class FormAlreadySignedException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw()
-				{
-					return "that Form was previously signed by this Bureaucrat.";
-				}
-		};
-		
+
         const std::string &getName() const;
         int getFormGradeToSign() const;
         int getFormGradeToExecute() const;

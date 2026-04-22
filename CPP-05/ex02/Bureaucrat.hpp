@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 16:34:06 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/04/22 17:00:53 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/04/21 16:34:20 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/04/21 16:34:24 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -16,6 +17,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class   Bureaucrat
 {
@@ -31,11 +35,10 @@ class   Bureaucrat
 
 		class	GradeTooHighException : public std::exception
 		{
-			public:
-				virtual const char*	what() const throw()
-				{
-					return "Grade is too high!";
-				}
+				public:
+					virtual const char*	what() const throw() {
+						return "Grade is too high!";
+					}
 		};
 
 		class   GradeTooLowException : public std::exception
@@ -48,9 +51,12 @@ class   Bureaucrat
 		};
 
 		const std::string &getName() const;
-		int getGrade() const;
+		int		getGrade() const;
 		void    incGrade(void); // if the grade is 3 and we call this func, the grade will be 2 (1 is the highest)
 		void    decGrade(void); // if the grade is 3 and we call this func, the grade will be 4 (150 is the lowest)
+		void signForm(Form &form); // calls for beSigned to try and sign the form
+								   // if the form is signed with success, prints OK
+								   // otherwise KO, because <reason> [more info on subject]
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat);
