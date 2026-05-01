@@ -2,14 +2,20 @@ NAME = Bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp \
-	   Bureaucrat.cpp \
-	   Form.cpp
+SRCS =  main.cpp \
+		Bureaucrat.cpp \
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 HEADERS =   Bureaucrat.hpp \
-			Form.hpp
+			AForm.hpp \
+			PresidentialPardonForm.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)

@@ -3,24 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:58:41 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/03/26 17:41:11 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:35:51 by nayaraogion      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+#include <cstdlib>
+#include <ctime>
+
 
 void correctTest(Bureaucrat *b1)
 {
 	std::cout << "\n=============== Tests supposed to work ===============" << std::endl;
 	try
 	{
-		Form *f1 = new Form("form1", 100, 5);
-		Form *f2 = new Form("form2", 5, 5);
+		AForm *f1 = new AForm("AForm1", 100, 5);
+		AForm *f2 = new AForm("AForm2", 5, 5);
 
 		b1->signForm(*f1);
 		b1->signForm(*f2);
@@ -38,7 +44,7 @@ void gradeTooLowTest(Bureaucrat *b1)
 	std::cout << "\n=============== Tests grade too low ===============" << std::endl;
 	try
 	{
-		Form *f1 = new Form("form2", 1, 5);
+		AForm *f1 = new AForm("AForm2", 1, 5);
 
 		b1->signForm(*f1);
 		delete f1;
@@ -49,12 +55,12 @@ void gradeTooLowTest(Bureaucrat *b1)
 	}
 }
 
-void formAlreadySigned(Bureaucrat *b1)
+void AFormAlreadySigned(Bureaucrat *b1)
 {
 	std::cout << "\n=============== Already signed ===============" << std::endl;
 	try
 	{
-		Form *f1 = new Form("form2", 140, 5);
+		AForm *f1 = new AForm("AForm2", 140, 5);
 
 		b1->signForm(*f1);
 		b1->signForm(*f1);
@@ -68,6 +74,7 @@ void formAlreadySigned(Bureaucrat *b1)
 
 int main(void)
 {
+	std::srand(std::time(NULL));
 	try
 	{
 		Bureaucrat *b1 = new Bureaucrat("b1", 5);
@@ -76,7 +83,7 @@ int main(void)
 
 		correctTest(b1);
 		gradeTooLowTest(b1);
-		formAlreadySigned(b1);
+		AFormAlreadySigned(b1);
 		delete b1;
 	}
 	catch (const std::exception &e)

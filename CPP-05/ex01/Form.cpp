@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:27:36 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/04/22 17:33:07 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:27:03 by nayaraogion      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
@@ -34,22 +35,32 @@ Form::~Form()
 std::ostream &operator<<(std::ostream &os, const Form &b)
 {
     os << b.getName() << " Form. Signed: " << b.getSign()
-       << ". Grade to sign: " << b.getFormGradeToSign()
-       << ". Grade to execute: " << b.getFormGradeToExecute();
+       << ". Grade to sign: " << b.getGradeToSign()
+       << ". Grade to execute: " << b.getGradeToExecute();
     return os;
 }
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "Form grade is too high!";
+}
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "Form grade is too low!";
+}
+
 
 const std::string &Form::getName() const
 {
     return (_name);
 }
 
-int Form::getFormGradeToSign() const
+int Form::getGradeToSign() const
 {
     return (_gradeToSign);
 }
 
-int Form::getFormGradeToExecute() const
+int Form::getGradeToExecute() const
 {
     return (_gradeToExecute);
 }
@@ -61,8 +72,6 @@ bool    Form::getSign() const
 
 void    Form::beSigned(const Bureaucrat& other)
 {
-	if (_isSigned)
-		throw FormAlreadySignedException();
 	int bGrade;
     bGrade = other.getGrade();
     if (bGrade <= this->_gradeToSign)

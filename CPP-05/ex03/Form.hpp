@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:10:02 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/03/26 17:44:12 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:35:22 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <string>
 #include <iostream>
 #include <exception>
-#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

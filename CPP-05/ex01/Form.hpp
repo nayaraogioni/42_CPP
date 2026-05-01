@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:10:02 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/04/22 17:35:00 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:27:10 by nayaraogion      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <string>
 #include <iostream>
 #include <exception>
-#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -28,41 +27,27 @@ class Form
         const int           _gradeToSign;
         const int           _gradeToExecute;
     public:
-        
-		Form(const std::string &name, int gradeToSign, int gradeToExecute);
+        Form();
+        Form(const std::string &name, int gradeToSign, int gradeToExecute);
         Form(const Form& other);
+        Form &operator=(const Form &other);
         ~Form();
 
-        class   GradeTooHighException : public std::exception
+        class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char *what() const throw()
-                {
-                    return "Bureaucrat's grade is GREATER than required to sign the form!";
-                }
+                virtual const char *what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
-        	public:
-			virtual const char *what() const throw()
-			{
-				return "Bureaucrat's grade is LOWER than required to sign the form!";
-			}
+            public:
+                virtual const char *what() const throw();
         };
-		
-		class FormAlreadySignedException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw()
-				{
-					return "that Form was previously signed by this Bureaucrat.";
-				}
-		};
-		
+
         const std::string &getName() const;
-        int getFormGradeToSign() const;
-        int getFormGradeToExecute() const;
+        int getGradeToSign() const;
+        int getGradeToExecute() const;
         bool getSign() const;
 
         void beSigned(const Bureaucrat &other); // changes the form's status to signed if the grade is high enough (>= to the required one)
