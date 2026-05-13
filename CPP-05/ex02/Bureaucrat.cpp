@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:53:03 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/01 14:05:24 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/13 15:44:57 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string bName, int bGrade) : _name(bName)
     if (bGrade < 1)
         throw GradeTooHighException();
     if (bGrade > 150)
-        throw GradeTooHighException();
+        throw GradeTooLowException();
     _grade = bGrade;
 }
 

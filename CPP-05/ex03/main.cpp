@@ -6,82 +6,72 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:58:41 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/03/26 17:41:11 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/05/13 15:26:14 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-void correctTest(Bureaucrat *b1)
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+static void testForm(AForm *form, Bureaucrat &signer, Bureaucrat &executor)
 {
-	std::cout << "\n=============== Tests supposed to work ===============" << std::endl;
-	try
-	{
-		Form *f1 = new Form("form1", 100, 5);
-		Form *f2 = new Form("form2", 5, 5);
+	if (!form)
+		return;
 
-		b1->signForm(*f1);
-		b1->signForm(*f2);
-		delete f1;
-		delete f2;
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	std::cout << "\nCreated form: " << *form << std::endl;
+
+	signer.signForm(*form);
+	executor.executeForm(*form);
+
+	delete form;
 }
 
-void gradeTooLowTest(Bureaucrat *b1)
+int main()
 {
-	std::cout << "\n=============== Tests grade too low ===============" << std::endl;
-	try
-	{
-		Form *f1 = new Form("form2", 1, 5);
+	std::srand(std::time(NULL));
 
-		b1->signForm(*f1);
-		delete f1;
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}
+	Intern intern;
 
-void formAlreadySigned(Bureaucrat *b1)
-{
-	std::cout << "\n=============== Already signed ===============" << std::endl;
-	try
-	{
-		Form *f1 = new Form("form2", 140, 5);
+	Bureaucrat boss("Boss", 1);
+	Bureaucrat mid("Middle", 50);
+	Bureaucrat low("Low", 150);
 
-		b1->signForm(*f1);
-		b1->signForm(*f1);
-		delete f1;
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-}
+	std::cout << "\n--- Intern creates valid forms ---" << std::endl;
 
-int main(void)
-{
-	try
-	{
-		Bureaucrat *b1 = new Bureaucrat("b1", 5);
+	AForm *shrub = intern.makeForm("ShrubberyCreationForm", "home");
+	AForm *robot = intern.makeForm("RobotomyRequestForm", "Bender");
+	AForm *pardon = intern.makeForm("PresidentialPardonForm", "Arthur Dent");
 
-		std::cout << "b1 created: " << *b1 << std::endl;
+	std::cout << "\n--- Test valid forms ---" << std::endl;
 
-		correctTest(b1);
-		gradeTooLowTest(b1);
-		formAlreadySigned(b1);
-		delete b1;
-	}
-	catch (const std::exception &e)
+	testForm(shrub, boss, boss);
+	testForm(robot, boss, boss);
+	testForm(pardon, boss, boss);
+
+	std::cout << "\n--- Intern receives invalid form name ---" << std::endl;
+
+	AForm *unknown = intern.makeForm("coffee request", "Marvin");
+	testForm(unknown, boss, boss);
+
+	std::cout << "\n--- Test weak bureaucrat with intern-created form ---" << std::endl;
+
+	AForm *robot2 = intern.makeForm("robotomy request", "Wall-E");
+	if (robot2)
 	{
-		std::cout << e.what() << std::endl;
+		low.signForm(*robot2);
+		mid.executeForm(*robot2);
+
+		boss.signForm(*robot2);
+		mid.executeForm(*robot2);
+		boss.executeForm(*robot2);
+
+		delete robot2;
 	}
+
 	return 0;
 }
