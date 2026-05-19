@@ -6,21 +6,21 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:58:41 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/13 13:21:36 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/05/19 18:42:01 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/AForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
-/* int main()
+int main()
 {
 	std::srand(std::time(NULL));
 
@@ -74,49 +74,16 @@
 	boss.executeForm(robot);
 	boss.executeForm(pardon);
 
-	return 0;
-}
- */
+/* 	std::cout << "\n--- Test 6: Robotomy 10 attempts ---" << std::endl;
 
-void testWork(Bureaucrat *b1, AForm *f1)
-{
-	std::cout << "=============== Test Work ===============" << std::endl;
-	b1->executeForm(*f1);
-}
+	RobotomyRequestForm roboTest("Robot Tomy");
+	boss.signForm(roboTest);
 
-void testNotSigned(Bureaucrat *b1, AForm *f1)
-{
-	std::cout << "=============== Test NotSigned ===============" << std::endl;
-	b1->executeForm(*f1);
-}
-
-void testNotEnoughGrade(Bureaucrat *b1, AForm *f1)
-{
-	std::cout << "=============== Test NotEnoughGrade ===============" << std::endl;
-	b1->executeForm(*f1);
-}
-
-int main(void)
-{
-	try
+	for (int i = 1; i <= 10; i++)
 	{
-		Bureaucrat *b1 = new Bureaucrat("b1", 5);
-		Bureaucrat *b2 = new Bureaucrat("b2", 140);
+		std::cout << "Attempt " << i << ": ";
+		boss.executeForm(roboTest);
+	} */
 
-		ShrubberyCreationForm *f1 = new ShrubberyCreationForm("target 1");
-
-		testNotSigned(b1, f1);
-		std::cout << "====> Signing" << std::endl;
-		b1->signForm(*f1);
-		testNotEnoughGrade(b2, f1);
-		testWork(b1, f1);
-		delete b1;
-		delete b2;
-		delete f1;
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
 	return 0;
 }

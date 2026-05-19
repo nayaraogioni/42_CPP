@@ -1,15 +1,15 @@
-NAME = Bureaucrat
+NAME = Form
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I inc
 
-SRCS = main.cpp \
-	   Bureaucrat.cpp \
-	   Form.cpp
+SRCS = src/main.cpp \
+	   src/Bureaucrat.cpp \
+	   src/Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS =   Bureaucrat.hpp \
-			Form.hpp
+HEADERS =   inc/Bureaucrat.hpp \
+			inc/Form.hpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:53:03 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/01 14:05:24 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/19 19:13:20 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name(""), _grade(150)
 {
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string bName, int bGrade) : _name(bName)
     if (bGrade < 1)
         throw GradeTooHighException();
     if (bGrade > 150)
-        throw GradeTooHighException();
+        throw GradeTooLowException();
     _grade = bGrade;
 }
 
@@ -58,6 +58,16 @@ const std::string& Bureaucrat::getName() const
 int		Bureaucrat::getGrade() const
 {
 	return (_grade);
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Bureaucrat's grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Bureaucrat's grade is too low";
 }
 
 void	Bureaucrat::incGrade(void)

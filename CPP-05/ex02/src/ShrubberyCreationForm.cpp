@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 #include <fstream>
 #include <iostream>
 

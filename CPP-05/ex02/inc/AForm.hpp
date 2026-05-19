@@ -23,46 +23,47 @@ class AForm
 {
 	private:
 		const std::string	_name;
-		bool					_isSigned;
+		bool				_isSigned;
 		const int			_gradeToSign;
 		const int			_gradeToExecute;
 
+	protected:
+		virtual void performAction() const = 0;
+
+	public:
+		AForm();
+		AForm(const std::string &name, int gradeToSign, int gradeToExecute);
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		virtual ~AForm();
+
+		class GradeTooHighException : public std::exception
+		{
 		public:
-			AForm();
-			AForm(const std::string& name, int gradeToSign, int gradeToExecute);
-			AForm(const AForm& other);
-			AForm &operator=(const AForm &other);
-			virtual ~AForm();
+			virtual const char *what() const throw();
+		};
 
-			class   GradeTooHighException : public std::exception
-			{
-				public:
-					virtual const char *what() const throw();
-			};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
-			class GradeTooLowException : public std::exception
-			{
-				public:
-					virtual const char *what() const throw();
-			};
+		class NotSignedException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
-			class NotSignedException : public std::exception
-			{
-				public:
-					virtual const char *what() const throw();
-			};
+		const std::string &getName() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
+		bool getSign() const;
 
-			const std::string &getName() const;
-			int getGradeToSign() const;
-			int getGradeToExecute() const;
-			bool getSign() const;
+		void beSigned(const Bureaucrat &other); // changes the AForm's status to signed if the grade is high enough (>= to the required one)
 
-			void beSigned(const Bureaucrat &other); // changes the AForm's status to signed if the grade is high enough (>= to the required one)
+		void execute(Bureaucrat const &executor) const;
 
-			void execute(Bureaucrat const &executor) const;
-
-			protected:
-				virtual void performAction() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &Form);

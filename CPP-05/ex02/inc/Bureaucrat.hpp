@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:34:20 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/01 14:01:25 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/19 17:45:06 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,16 @@ class   Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &other);
 		~Bureaucrat();
 
-		class	GradeTooHighException : public std::exception
+		class GradeTooHighException : public std::exception
 		{
-				public:
-					virtual const char*	what() const throw() {
-						return "Grade is too high!";
-					}
+		public:
+			virtual const char *what() const throw();
 		};
 
-		class   GradeTooLowException : public std::exception
+		class GradeTooLowException : public std::exception
 		{
-			public:
-				virtual const char *what() const throw()
-				{
-					return "Grade is too low!";
-				}
+		public:
+			virtual const char *what() const throw();
 		};
 
 		const	std::string &getName() const;

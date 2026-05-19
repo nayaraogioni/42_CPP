@@ -1,13 +1,13 @@
 NAME = Bureaucrat
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I inc
 
-SRCS = main.cpp \
-	   Bureaucrat.cpp
+SRCS = src/main.cpp \
+	   src/Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS =   Bureaucrat.hpp
+HEADERS = inc/Bureaucrat.hpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)

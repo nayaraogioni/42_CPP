@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:34:20 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/01 14:01:25 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/19 15:06:47 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
-class AForm;
+class Form;
 
 class   Bureaucrat
 {
@@ -35,28 +36,22 @@ class   Bureaucrat
 		class	GradeTooHighException : public std::exception
 		{
 				public:
-					virtual const char*	what() const throw() {
-						return "Grade is too high!";
-					}
+					virtual const char*	what() const throw();
 		};
 
 		class   GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-				{
-					return "Grade is too low!";
-				}
+				virtual const char *what() const throw();
 		};
 
-		const	std::string &getName() const;
+		const std::string &getName() const;
 		int		getGrade() const;
 		void	incGrade(void); // if the grade is 3 and we call this func, the grade will be 2 (1 is the highest)
 		void	decGrade(void); // if the grade is 3 and we call this func, the grade will be 4 (150 is the lowest)
-		void	signForm(AForm &form); // calls for beSigned to try and sign the form
+		void	signForm(Form &form); // calls for beSigned to try and sign the form
 								   // if the form is signed with success, prints OK
 								   // otherwise KO, because <reason> [more info on subject]
-		void	executeForm(AForm const &form) const;
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat& bureaucrat);

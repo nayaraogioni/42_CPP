@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 18:27:36 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/05/01 15:27:03 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/19 17:13:02 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
@@ -42,11 +42,11 @@ std::ostream &operator<<(std::ostream &os, const Form &b)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-    return "Form grade is too high!";
+    return "Form's grade is too high!";
 }
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return "Form grade is too low!";
+    return "Form's grade is too low!";
 }
 
 

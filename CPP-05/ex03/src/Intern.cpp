@@ -13,9 +13,9 @@
 #include "Intern.hpp"
 #include <iostream>
 #include <string>
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 Intern::Intern() {}
 
