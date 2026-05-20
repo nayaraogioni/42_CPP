@@ -2,22 +2,22 @@ NAME = Intern
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =  main.cpp \
-		Bureaucrat.cpp \
-		AForm.cpp \
-		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp \
-		Intern.cpp
+SRCS =  src/main.cpp \
+		src/Bureaucrat.cpp \
+		src/AForm.cpp \
+		src/PresidentialPardonForm.cpp \
+		src/RobotomyRequestForm.cpp \
+		src/ShrubberyCreationForm.cpp \
+		src/Intern.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-HEADERS =   Bureaucrat.hpp \
-			AForm.hpp \
-			PresidentialPardonForm.hpp \
-			RobotomyRequestForm.hpp \
-			ShrubberyCreationForm.hpp \
-			Intern.hpp
+HEADERS =   inc/Bureaucrat.hpp \
+			inc/AForm.hpp \
+			inc/PresidentialPardonForm.hpp \
+			inc/RobotomyRequestForm.hpp \
+			inc/ShrubberyCreationForm.hpp \
+			inc/Intern.cpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)
