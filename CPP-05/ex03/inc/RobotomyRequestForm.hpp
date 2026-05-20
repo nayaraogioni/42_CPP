@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 15:04:20 by nayaraogion       #+#    #+#             */
-/*   Updated: 2026/05/01 15:53:22 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/20 19:06:27 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include <string>
 
 class RobotomyRequestForm : public AForm

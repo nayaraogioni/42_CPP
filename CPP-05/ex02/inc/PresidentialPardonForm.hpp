@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nayaraogioni <nayaraogioni@student.42.f    +#+  +:+       +#+        */
+/*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 13:51:00 by nayaraogion       #+#    #+#             */
-/*   Updated: 2026/05/01 15:53:27 by nayaraogion      ###   ########.fr       */
+/*   Updated: 2026/05/20 19:02:59 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include <string>
 
 class PresidentialPardonForm : public AForm
