@@ -17,7 +17,7 @@ HEADERS =   inc/Bureaucrat.hpp \
 			inc/PresidentialPardonForm.hpp \
 			inc/RobotomyRequestForm.hpp \
 			inc/ShrubberyCreationForm.hpp \
-			inc/Intern.cpp
+			inc/Intern.hpp
 
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)
