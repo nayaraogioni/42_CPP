@@ -6,7 +6,7 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 12:01:01 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/09/07 14:42:18 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/09/19 15:10:39 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	identify(Base &p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		A objA;
+		objA = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return;
 	}
@@ -65,7 +66,8 @@ void	identify(Base &p)
 	}
 	try
 	{
-		dynamic_cast<B&>(p);
+		B objB;
+		objB = dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 		return ;
 	}
@@ -74,7 +76,8 @@ void	identify(Base &p)
 	}
 	try
 	{
-		dynamic_cast<C&>(p);
+		C objC;
+		objC = dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 		return ;
 	}

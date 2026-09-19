@@ -6,12 +6,12 @@
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 11:03:10 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/09/07 11:55:52 by nogioni-         ###   ########.fr       */
+/*   Updated: 2026/09/19 14:50:01 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
-#define SEARILIZER_HPP
+#define SERIALIZER_HPP
 
 #include <stdint.h>
 #include "Data.hpp"

@@ -25,7 +25,7 @@ int main(int ac, char **av)
     else
     {
         std::cout << "ERROR:\n"
-                    << "You must pass one argument."
+                    << "You must provide one argument."
                     << std::endl;
         return 1;
     }
