@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.hpp                                  :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nogioni- <nogioni-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 11:03:10 by nogioni-          #+#    #+#             */
-/*   Updated: 2026/08/18 12:21:52 by nogioni-         ###   ########.fr       */
+/*   Created: 2026/09/07 10:12:59 by nogioni-          #+#    #+#             */
+/*   Updated: 2026/09/07 10:14:04 by nogioni-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATION_HPP
-#define SEARILIATION_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-class	Serialization
+struct Data
 {
-	private:
-		virtual unsigned int*	serialize(void* ptr) = 0;
-		void*	deserialize(unsigned int* raw);
+	int	value;
 };
-
-typedef	struct s_data
-{
-	
-}	
 
 #endif
